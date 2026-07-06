@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>検索結果 | 天水恩寵会</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: "Yu Mincho", "MS PMincho", "Hiragino Mincho ProN", serif;
+    background-color: #fdfcf9;
+    color: #5c554d;
+    line-height: 1.8;
+    letter-spacing: 0.05em;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #efeae1;
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .logo-link {
+    display: block;
+    width: 150px;
+  }
+
+  .logo-link img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .header-controls {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .nav-menu {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+  }
+
+  .nav-menu a {
+    font-size: 14px;
+    transition: color 0.3s;
+  }
+
+  .nav-menu a:hover {
+    color: #bfa888;
+  }
+
+  .search-form {
+    display: flex;
+    align-items: center;
+    border: 1px solid #efeae1;
+    border-radius: 20px;
+    background-color: #f7f5f0;
+    overflow: hidden;
+  }
+
+  .search-input {
+    border: none;
+    background: transparent;
+    padding: 8px 10px 8px 15px;
+    font-size: 13px;
+    color: #5c554d;
+    outline: none;
+    width: 150px;
+    font-family: inherit;
+  }
+
+  .search-input::placeholder {
+    color: #a69a8a;
+  }
+
+  .search-button {
+    border: none;
+    background: #bfa888;
+    color: #ffffff;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 13px;
+    font-family: inherit;
+    outline: none;
+    transition: background-color 0.3s;
+  }
+
+  .search-button:hover {
+    background-color: #a68f6d;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 25px;
+    height: 1px;
+    background-color: #5c554d;
+    transition: 0.3s;
+  }
+
+  main {
+    flex: 1;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    box-sizing: border-box;
+  }
+
+  .search-header {
+    margin-bottom: 40px;
+    border-bottom: 1px solid #efeae1;
+    padding-bottom: 20px;
+  }
+
+  .search-title {
+    font-size: 24px;
+    font-weight: normal;
+    color: #8c7e6b;
+    margin: 0 0 10px 0;
+  }
+
+  .search-meta {
+    font-size: 14px;
+    color: #a69a8a;
+  }
+
+  .results-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .result-item {
+    padding-bottom: 30px;
+    border-bottom: 1px dashed #efeae1;
+  }
+
+  .result-title {
+    font-size: 18px;
+    color: #bfa888;
+    margin: 0 0 5px 0;
+    transition: color 0.3s;
+  }
+  
+  .result-title a:hover {
+    color: #8c7e6b;
+    text-decoration: underline;
+  }
+
+  .result-url {
+    font-size: 12px;
+    color: #a69a8a;
+    margin: 0 0 10px 0;
+    font-family: sans-serif;
+  }
+
+  .result-snippet {
+    font-size: 14px;
+    color: #5c554d;
+    margin: 0;
+  }
+
+  .no-results {
+    text-align: center;
+    padding: 40px 0;
+    color: #8c7e6b;
+  }
+
+  footer {
+    background-color: #ffffff;
+    border-top: 1px solid #efeae1;
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .footer-meta {
+    font-size: 11px;
+    color: #b3b3b3;
+    font-family: sans-serif;
+  }
+
+  .footer-meta p {
+    margin: 5px 0;
+  }
+
+  @media (max-width: 900px) {
+    .nav-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: #ffffff;
+      flex-direction: column;
+      gap: 0;
+      border-bottom: 1px solid #efeae1;
+      display: none;
+    }
+
+    .nav-menu.active {
+      display: flex;
+    }
+
+    .nav-menu a {
+      padding: 20px;
+      border-top: 1px solid #f9f8f6;
+      text-align: center;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .hamburger {
+      display: flex;
+    }
+    
+    .search-input {
+      width: 100px;
+    }
+    
+    .header-controls {
+      gap: 15px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="about.html" class="logo-link">
+    <img src="images/logo.png" alt="天水恩寵会">
+  </a>
+  
+  <div class="header-controls">
+    <nav class="nav-menu" id="navMenu">
+      <a href="about.html">天水恩寵会について</a>
+      <a href="founder.html">教主の歩み</a>
+      <a href="water.html">奇跡の水</a>
+      <a href="contact.html">ご入信・お問い合わせ</a>
+    </nav>
+
+    <form class="search-form" action="search.html" method="GET">
+      <input type="text" name="q" class="search-input" placeholder="サイト内検索" autocomplete="off" id="searchInput">
+      <button type="submit" class="search-button">検索</button>
+    </form>
+
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="search-header">
+    <h1 class="search-title">「<span id="queryDisplay"></span>」の検索結果</h1>
+    <p class="search-meta" id="resultCountMeta"></p>
+  </div>
+
+  <div class="results-container" id="resultsContainer">
+  </div>
+</main>
+
+<footer>
+  <div class="footer-meta">
+    <p>このサイトの内容はフィクションです。登場する人物・団体・名称等は架空であり、実在のものとは関係ありません。</p>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.getElementById('navMenu');
+
+  hamburger.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+
+  const searchDatabase = [
+    {
+      keywords: ["水", "奇跡", "奇跡の水", "浄化", "恩寵"],
+      title: "奇跡の水 | 天水恩寵会",
+      url: "water.html",
+      description: "天水恩寵会が授かる「奇跡の水」は、悠久の時を経て地下深くで浄化された、まさに大地の結晶。一切の穢れを知らないこの水は、枯渇した現代人の魂の奥深くまで浸透し、本来の清らかな姿へと導きます。"
+    },
+    {
+      keywords: ["教祖", "教主", "歩み", "歴史", "設立"],
+      title: "教主の歩み | 天水恩寵会",
+      url: "founder.html",
+      description: "当会の教主がどのようにして真理に辿り着いたのか、その歩みと天水恩寵会の設立に至るまでの軌跡をご紹介します。苦難を乗り越え、大地からの啓示を受けた日のこと。"
+    },
+    {
+      keywords: ["組織", "天水恩寵会", "理念", "教え", "について"],
+      title: "天水恩寵会について | 天水恩寵会",
+      url: "about.html",
+      description: "私たち天水恩寵会は、現代社会に蔓延する目に見えない不浄から魂を解放し、清らかな本来の姿を取り戻すことを目的として活動しております。"
+    },
+    {
+      keywords: ["入信", "問い合わせ", "連絡", "会員", "信徒"],
+      title: "ご入信・お問い合わせ | 天水恩寵会",
+      url: "contact.html",
+      description: "奇跡の水は、一般の市場には一切出回っておりません。当会との深いご縁を感じられた方、お導きをご希望の方はこちらからお問い合わせください。"
+    },
+    {
+      keywords: ["オゾン層", "紫外線", "汚染", "宇宙線", "滅亡", "選別", "真実", "テスト", "生存", "シェルター"],
+      title: "【機密アクセス】真水救済計画 - 最終選別フェーズ",
+      url: "truth.html",
+      description: "対象者のアクセスを検知しました。地表水源の不可逆的な汚染及びオゾン層崩壊の真実に到達したことを歓迎します。あなたは生存コミュニティへの参加資格を満たしつつあります。"
+    }
+  ];
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    const query = params.get('q');
+    
+    const searchInput = document.getElementById('searchInput');
+    const queryDisplay = document.getElementById('queryDisplay');
+    const resultCountMeta = document.getElementById('resultCountMeta');
+    const resultsContainer = document.getElementById('resultsContainer');
+
+    if (query && query.trim() !== "") {
+      const sanitizedQuery = query.trim();
+      
+      searchInput.value = sanitizedQuery;
+      queryDisplay.textContent = sanitizedQuery;
+
+      const lowerQuery = sanitizedQuery.toLowerCase();
+      
+      const matchedResults = searchDatabase.filter(item => {
+        return item.keywords.some(keyword => {
+          return keyword.toLowerCase() === lowerQuery;
+        });
+      });
+
+      resultCountMeta.textContent = `該当するページが ${matchedResults.length} 件見つかりました。`;
+
+      if (matchedResults.length > 0) {
+        matchedResults.forEach(result => {
+          const resultElement = document.createElement('div');
+          resultElement.className = 'result-item';
+          
+          resultElement.innerHTML = `
+            <h2 class="result-title"><a href="${result.url}">${result.title}</a></h2>
+            <p class="result-url">${window.location.origin}/${result.url}</p>
+            <p class="result-snippet">${result.description}</p>
+          `;
+          
+          resultsContainer.appendChild(resultElement);
+        });
+      } else {
+        resultsContainer.innerHTML = `
+          <div class="no-results">
+            <p>入力されたキーワードに一致するページは見つかりませんでした。</p>
+            <p>別のキーワードでお試しいただくか、ひらがな・カタカナ・漢字を変えて再度検索してください。</p>
+          </div>
+        `;
+      }
+    } else {
+      queryDisplay.textContent = "未入力";
+      resultCountMeta.textContent = "キーワードを入力して検索してください。";
+      resultsContainer.innerHTML = `
+        <div class="no-results">
+          <p>検索キーワードが指定されていません。</p>
+        </div>
+      `;
+    }
+  });
+</script>
+</body>
+</html>

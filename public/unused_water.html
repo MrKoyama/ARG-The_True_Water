@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>教主の歩み | 天水恩寵会</title>
+<title>奇跡の水 | 天水恩寵会</title>
 <style>
   body {
     margin: 0;
@@ -13,9 +13,6 @@
     color: #5c554d;
     line-height: 1.8;
     letter-spacing: 0.05em;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
   }
 
   a {
@@ -49,7 +46,7 @@
   .header-controls {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 20px;
   }
 
   .nav-menu {
@@ -63,8 +60,7 @@
     transition: color 0.3s;
   }
 
-  .nav-menu a:hover,
-  .nav-menu a.active {
+  .nav-menu a:hover {
     color: #bfa888;
   }
 
@@ -90,6 +86,10 @@
 
   .search-input::placeholder {
     color: #a69a8a;
+  }
+
+  .search-input:focus {
+    width: 150px;
   }
 
   .search-button {
@@ -123,21 +123,7 @@
     transition: 0.3s;
   }
 
-    .product-showcase {
-    background-color: #f7f5f0;
-    padding: 60px 20px;
-    text-align: center;
-  }
-
-  .product-image {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    margin: 0 auto 30px;
-    display: block;
-  }
-
-    .hero-section {
+  .hero-section {
     position: relative;
     width: 100%;
     max-width: 1000px;
@@ -157,7 +143,41 @@
     box-shadow: 0 10px 30px rgba(0,0,0,0.03);
   }
 
-    .btn-contact {
+  .section-title {
+    font-size: 28px;
+    font-weight: normal;
+    margin-bottom: 20px;
+    color: #8c7e6b;
+  }
+
+  .section-subtitle {
+    font-size: 16px;
+    margin-bottom: 40px;
+    color: #a69a8a;
+  }
+
+  .content-text {
+    max-width: 600px;
+    margin: 0 auto 60px;
+    text-align: left;
+    font-size: 15px;
+  }
+
+  .product-showcase {
+    background-color: #f7f5f0;
+    padding: 60px 20px;
+    text-align: center;
+  }
+
+  .product-image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin: 0 auto 30px;
+    display: block;
+  }
+
+  .btn-contact {
     display: inline-block;
     background-color: #bfa888;
     color: #ffffff;
@@ -170,96 +190,6 @@
 
   .btn-contact:hover {
     background-color: #a68f6d;
-  }
-
-  main {
-    flex: 1;
-    width: 100%;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 60px 20px;
-    box-sizing: border-box;
-  }
-
-  .page-header {
-    text-align: center;
-    margin-bottom: 50px;
-  }
-
-  .page-title {
-    font-size: 28px;
-    font-weight: normal;
-    color: #8c7e6b;
-    margin-bottom: 10px;
-  }
-
-  .page-subtitle {
-    font-size: 15px;
-    color: #a69a8a;
-  }
-
-  .leader-section {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-    margin-bottom: 80px;
-    align-items: flex-start;
-  }
-
-  .leader-image-wrapper {
-    flex: 1;
-    min-width: 300px;
-  }
-
-  .leader-image {
-    width: 100%;
-    height: auto;
-    border-radius: 4px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-  }
-
-  .leader-content {
-    flex: 1.5;
-    min-width: 300px;
-  }
-
-  .section-h2 {
-    font-size: 22px;
-    font-weight: normal;
-    color: #8c7e6b;
-    border-bottom: 1px solid #efeae1;
-    padding-bottom: 10px;
-    margin-bottom: 25px;
-    margin-top: 0;
-  }
-
-  .content-text {
-    font-size: 15px;
-    line-height: 2;
-    margin-bottom: 20px;
-  }
-
-  .leader-name {
-    font-size: 20px;
-    text-align: right;
-    color: #8c7e6b;
-    margin-top: 30px;
-  }
-
-  .history-section {
-    background-color: #f7f5f0;
-    padding: 50px 40px;
-    border-radius: 4px;
-    margin-bottom: 60px;
-  }
-
-  .history-image {
-    width: 100%;
-    max-width: 600px;
-    height: auto;
-    margin: 0 auto 40px;
-    display: block;
-    border-radius: 4px;
   }
 
   footer {
@@ -307,17 +237,13 @@
     .hamburger {
       display: flex;
     }
-
+    
     .search-input {
       width: 100px;
     }
-
-    .header-controls {
-      gap: 15px;
-    }
-
-    .history-section {
-      padding: 30px 20px;
+    
+    .search-input:focus {
+      width: 120px;
     }
   }
 </style>
@@ -333,7 +259,7 @@
     <nav class="nav-menu" id="navMenu">
       <a href="about.html">天水恩寵会について</a>
       <a href="founder.html">教主の歩み</a>
-      <a href="water.html" class="active">奇跡の水</a>
+      <a href="water.html">奇跡の水</a>
       <a href="contact.html">ご入信・お問い合わせ</a>
     </nav>
 
