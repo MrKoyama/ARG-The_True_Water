@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>昇華試験について | 天水恩寵会</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: "Yu Mincho", "MS PMincho", "Hiragino Mincho ProN", serif;
+    background-color: #fdfcf9;
+    color: #5c554d;
+    line-height: 1.8;
+    letter-spacing: 0.05em;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #efeae1;
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .logo-link {
+    display: block;
+    width: 150px;
+  }
+
+  .logo-link img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .header-controls {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .nav-menu {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+  }
+
+  .nav-menu a {
+    font-size: 14px;
+    transition: color 0.3s;
+  }
+
+  .nav-menu a:hover,
+  .nav-menu a.active {
+    color: #bfa888;
+  }
+
+  .search-form {
+    display: flex;
+    align-items: center;
+    border: 1px solid #efeae1;
+    border-radius: 20px;
+    background-color: #f7f5f0;
+    overflow: hidden;
+  }
+
+  .search-input {
+    border: none;
+    background: transparent;
+    padding: 8px 10px 8px 15px;
+    font-size: 13px;
+    color: #5c554d;
+    outline: none;
+    width: 150px;
+    font-family: inherit;
+  }
+
+  .search-input::placeholder {
+    color: #a69a8a;
+  }
+
+  .search-button {
+    border: none;
+    background: #bfa888;
+    color: #ffffff;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 13px;
+    font-family: inherit;
+    outline: none;
+    transition: background-color 0.3s;
+  }
+
+  .search-button:hover {
+    background-color: #a68f6d;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 25px;
+    height: 1px;
+    background-color: #5c554d;
+    transition: 0.3s;
+  }
+
+  main {
+    flex: 1;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    box-sizing: border-box;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .page-title {
+    font-size: 28px;
+    font-weight: normal;
+    color: #8c7e6b;
+    margin-bottom: 10px;
+  }
+
+  .page-subtitle {
+    font-size: 15px;
+    color: #a69a8a;
+  }
+
+  .main-image {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 50px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+  }
+
+  .section {
+    margin-bottom: 60px;
+  }
+
+  .section-h2 {
+    font-size: 22px;
+    font-weight: normal;
+    color: #8c7e6b;
+    border-bottom: 1px solid #efeae1;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+  }
+
+  .content-text {
+    font-size: 15px;
+    line-height: 2;
+    margin-bottom: 20px;
+  }
+
+  .info-box {
+    background-color: #f7f5f0;
+    padding: 35px;
+    border-radius: 4px;
+    margin-top: 30px;
+    border-left: 4px solid #bfa888;
+  }
+
+  .info-title {
+    font-size: 18px;
+    color: #8c7e6b;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-weight: bold;
+    border-bottom: 1px dashed #efeae1;
+    padding-bottom: 10px;
+  }
+
+  .detail-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .detail-list li {
+    margin-bottom: 15px;
+    font-size: 15px;
+    display: flex;
+  }
+
+  .detail-label {
+    font-weight: bold;
+    color: #8c7e6b;
+    width: 120px;
+    flex-shrink: 0;
+  }
+
+  .detail-content {
+    flex: 1;
+  }
+
+  .important-notice {
+    font-size: 14px;
+    color: #cc6666;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #fffaf9;
+    border: 1px solid #f2e6e6;
+    border-radius: 4px;
+  }
+
+  footer {
+    background-color: #ffffff;
+    border-top: 1px solid #efeae1;
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .footer-meta {
+    font-size: 11px;
+    color: #b3b3b3;
+    font-family: sans-serif;
+  }
+
+  .footer-meta p {
+    margin: 5px 0;
+  }
+
+  @media (max-width: 900px) {
+    .nav-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: #ffffff;
+      flex-direction: column;
+      gap: 0;
+      border-bottom: 1px solid #efeae1;
+      display: none;
+    }
+
+    .nav-menu.active {
+      display: flex;
+    }
+
+    .nav-menu a {
+      padding: 20px;
+      border-top: 1px solid #f9f8f6;
+      text-align: center;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .hamburger {
+      display: flex;
+    }
+
+    .search-input {
+      width: 100px;
+    }
+
+    .header-controls {
+      gap: 15px;
+    }
+
+    .info-box {
+      padding: 20px;
+    }
+
+    .detail-list li {
+      flex-direction: column;
+    }
+
+    .detail-label {
+      width: 100%;
+      margin-bottom: 5px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="about.html" class="logo-link">
+    <img src="images/logo.png" alt="天水恩寵会">
+  </a>
+  
+  <div class="header-controls">
+    <nav class="nav-menu" id="navMenu">
+      <a href="about.html">天水恩寵会について</a>
+      <a href="founder.html">教主の歩み</a>
+      <a href="water.html">奇跡の水</a>
+      <a href="contact.html">ご入信・お問い合わせ</a>
+    </nav>
+
+    <form class="search-form" action="search.html" method="GET">
+      <input type="text" name="q" class="search-input" placeholder="サイト内検索" autocomplete="off">
+      <button type="submit" class="search-button">検索</button>
+    </form>
+
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="page-header">
+    <h1 class="page-title">昇華試験について（信徒各位）</h1>
+    <p class="page-subtitle">清らかなる波紋の、次なる広がりへ</p>
+  </div>
+
+  <!--
+  場面：昇華試験の厳粛な雰囲気を伝えるイメージ
+  ターゲット層：試験に挑む恵水者、導水者
+  テーマ・コンセプト：試練、選別、神聖な静寂、知性と覚悟
+  含めたい要素：整然と並べられた白木の机と椅子。各机の上には一枚の白い紙と、満たされた透明なグラスが一つずつ置かれている。窓からは淡い光が差し込んでいる。
+  カラーテーマ：白、木目調の淡い茶色、静謐な空気感を感じさせるわずかな青み。
+  画像サイズ：1000*500px
+  レイアウトイメージ：規則正しく並んだ机が奥へと続く、緊張感と神聖さが同居するシンメトリーな構図。
+  -->
+  <img src="images/exam-hall.png" alt="昇華試験会場のイメージ" class="main-image">
+
+  <section class="section">
+    <h2 class="section-h2">昇華の理念 — なぜ私たちは試されるのか</h2>
+    <p class="content-text">
+      日々の清らかなる務めを果たされている恵水者、および導水者の皆様へ。次なる導位へと進むための「昇華試験」の開催が決定いたしました。
+    </p>
+    <p class="content-text">
+      当会が皆様に試練を課すのには理由があります。世界は今、目に見えぬ脅威によって確実に蝕まれており、私たちが護り抜いている「奇跡の水」は有限です。大衆が真実に目を背ける中、この尊い恵みを未来へ繋ぐためには、ただ盲目的に祈る者ではなく、自らの知性で事象を分析し、真理を見抜き、他者を正しく導くことのできる「真に優秀な人材」を厳格に選別しなくてはなりません。
+    </p>
+    <p class="content-text">
+      昇華試験は、皆様の信仰心を量るものではありません。隠された真実に辿り着く論理的思考力、いかなる状況下でも生存を掴み取るための行動力、そして同志を率いる覚悟を問うためのものです。
+    </p>
+  </section>
+
+  <section class="section">
+    <h2 class="section-h2">開催要項およびお申し込みについて</h2>
+    <p class="content-text">
+      上位の導位への昇華を志し、所定の推薦条件を満たしている方は、以下の要項に従い速やかに志願手続きを行ってください。
+    </p>
+
+    <div class="info-box">
+      <h3 class="info-title">次期 昇華試験 開催概要</h3>
+      <ul class="detail-list">
+        <li>
+          <span class="detail-label">対象者</span>
+          <span class="detail-content">現在「恵水者」または「導水者」の導位にあり、自身より上位の導位にある者<strong>２名以上からの正式な推薦</strong>を受けている方。</span>
+        </li>
+        <li>
+          <span class="detail-label">開催日程</span>
+          <span class="detail-content">次月末日の午（詳細な時刻は志願受理後に個別通達いたします）</span>
+        </li>
+        <li>
+          <span class="detail-label">試験会場</span>
+          <span class="detail-content">各管轄の指定集会場、および一部の選抜者は本部地下施設。</span>
+        </li>
+        <li>
+          <span class="detail-label">申込方法</span>
+          <span class="detail-content">推薦状を添え、自身が所属する集会の導水者、あるいは直属の源流守を通じて「昇華志願書」をご提出ください。</span>
+        </li>
+        <li>
+          <span class="detail-label">申込期日</span>
+          <span class="detail-content">今月二十五日の日没まで。期日を過ぎたものは一切受理いたしません。</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="important-notice">
+      【注意事項】<br>
+      昇華試験の内容は、一切の口外を禁じております。過去に試験を受けた者からの情報漏洩が発覚した場合、情報提供者・受領者ともに、当会からの永久追放（＝真水の供給停止）となりますことを固く申し伝えます。
+    </div>
+  </section>
+
+  <section class="section">
+    <p class="content-text" style="text-align: center;">
+      真理は常に、自ら深淵を覗き込む勇気を持つ者の前にのみ現れます。<br>皆様の知性と覚悟が、当会の清澄なる波紋をさらに広げる力となることを心より期待しております。
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-meta">
+    <p>このサイトの内容はフィクションです。登場する人物・団体・名称等は架空であり、実在のものとは関係ありません。</p>
+    <p>&lt; 10/00 &gt;</p>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.getElementById('navMenu');
+
+  hamburger.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+</script>
+</body>
+</html>

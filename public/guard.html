@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>「導位」について | 天水恩寵会</title>
+<title>「源流守」について | 天水恩寵会</title>
 <style>
   body {
     margin: 0;
@@ -157,6 +157,10 @@
     box-shadow: 0 10px 30px rgba(0,0,0,0.03);
   }
 
+  .section {
+    margin-bottom: 60px;
+  }
+
   .section-h2 {
     font-size: 22px;
     font-weight: normal;
@@ -172,60 +176,40 @@
     margin-bottom: 20px;
   }
 
-  .hierarchy-box {
+  .info-box {
     background-color: #f7f5f0;
-    padding: 40px;
+    padding: 35px;
     border-radius: 4px;
-    margin-top: 40px;
-    margin-bottom: 40px;
+    margin-top: 30px;
   }
 
-  .hierarchy-title {
-    text-align: center;
-    font-size: 20px;
-    color: #8c7e6b;
-    margin-top: 0;
-    margin-bottom: 30px;
-    font-weight: normal;
-  }
-
-  .rank-item {
-    background-color: #ffffff;
-    border: 1px solid #efeae1;
-    padding: 25px;
-    margin-bottom: 15px;
-    border-radius: 4px;
-    position: relative;
-  }
-  
-  .rank-item::after {
-    content: "";
-    display: block;
-    width: 2px;
-    height: 15px;
-    background-color: #bfa888;
-    position: absolute;
-    bottom: -16px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .rank-item:last-child::after {
-    display: none;
-  }
-
-  .rank-name {
+  .info-title {
     font-size: 18px;
     color: #8c7e6b;
-    margin: 0 0 10px 0;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: normal;
     text-align: center;
-    font-weight: bold;
   }
 
-  .rank-desc {
-    font-size: 14px;
+  .info-list {
+    list-style: none;
+    padding: 0;
     margin: 0;
-    text-align: center;
+  }
+
+  .info-list li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 15px;
+    font-size: 15px;
+  }
+
+  .info-list li::before {
+    content: "・";
+    position: absolute;
+    left: 0;
+    color: #bfa888;
   }
 
   footer {
@@ -233,24 +217,6 @@
     border-top: 1px solid #efeae1;
     padding: 40px 20px;
     text-align: center;
-  }
-
-  .footer-nav {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-  }
-
-  .footer-nav a {
-    font-size: 13px;
-    color: #8c7e6b;
-    transition: color 0.3s;
-  }
-
-  .footer-nav a:hover {
-    color: #bfa888;
   }
 
   .footer-meta {
@@ -300,7 +266,7 @@
       gap: 15px;
     }
 
-    .hierarchy-box {
+    .info-box {
       padding: 20px;
     }
   }
@@ -336,58 +302,55 @@
 
 <main>
   <div class="page-header">
-    <h1 class="page-title">「導位」について</h1>
-    <p class="page-subtitle">命の水を分かち合う、清らかなる結びつき</p>
+    <h1 class="page-title">「源流守」について</h1>
+    <p class="page-subtitle">最も深き場所で、命の源を護る者たち</p>
   </div>
 
-  <img src="images/members-intro.png" alt="恵水者の結びつき" class="main-image">
+  <img src="images/genryumori-duty.png" alt="源流守の管理する地下水源" class="main-image">
 
-  <section>
-    <h2 class="section-h2">導位とは</h2>
+  <section class="section">
+    <h2 class="section-h2">真理の奥深くに立つ者</h2>
     <p class="content-text">
-      「導位（どうい）」とは、天水恩寵会に集う皆様の階位を表すものです。すべての会員様は、まず「恵水者（けいすいしゃ）」としてその歩みを始められます。
+      導水者として幾多の魂を導き、当会への絶対的な献身と極めて高度な知性、そして開祖の見た真実を完全に理解し受け入れた者のみが到達できる、最も神聖なる導位が「源流守（げんりゅうもり）」です。
     </p>
     <p class="content-text">
-      当会における活動や研鑽を重ね、ご自身より上位の導位を持つ方2名からの推薦を受けることで、昇叙（しょうじょ）のための考査をお受けいただくことができます。この考査に合格されることで、次の導位へと進まれます。
+      全信徒の中でもごく一握りの者しかこの導位に就くことは許されません。彼らは波紋の中心に最も近い場所で、当会の運営方針を決定する中核的な役割を担っています。
     </p>
   </section>
 
-  <section>
-    <div class="hierarchy-box">
-      <h2 class="hierarchy-title">清澄なる波紋の広がり</h2>
-      <p class="content-text" style="text-align: center; margin-bottom: 30px; font-size: 14px;">
-        天水恩寵会は、中心から外側へと広がる美しい水面の波紋のように、<br>役割に応じた「導位」と呼ばれる清らかな構造を持っています。
-      </p>
-
-      <img src="images/hierarchy-diagram.png" alt="導位の構造図" class="main-image" style="box-shadow: none; max-width: 600px; display: block; margin: 0 auto 30px;">
-
-      <div class="rank-item">
-        <h3 class="rank-name">教主（きょうしゅ）</h3>
-        <p class="rank-desc">波紋の中心。大いなる啓示を受け、すべての恵水者を真なる生存の道へと導く唯一の存在です。</p>
-      </div>
-
-      <div class="rank-item">
-        <h3 class="rank-name">源流守（げんりゅうもり）</h3>
-        <p class="rank-desc">地下深くの絶対不可侵なる水源地帯を管理・守護する限られた者たちです。極めて高度な知識と選ばれた精神を持ちます。</p>
-      </div>
-
-      <div class="rank-item">
-        <h3 class="rank-name">導水者（どうすいしゃ）</h3>
-        <p class="rank-desc">恵水者の中から見出され、真理をより深く理解した者たちです。新たな恵水者を導き入れ、水の分配と各集会の運営を担います。</p>
-      </div>
-
-      <div class="rank-item">
-        <h3 class="rank-name">恵水者（けいすいしゃ）</h3>
-        <p class="rank-desc">浄化の恩寵を受け取る土台となる皆様です。日々の生活の中で魂を清め、同志たちと固い結びつきを育みます。</p>
-      </div>
+  <section class="section">
+    <h2 class="section-h2">絶対不可侵なる責務</h2>
+    <p class="content-text">
+      源流守に与えられた最大の使命は、天からの穢れを一切受けない地下深部の水源地帯への立ち入りと、その厳重な維持管理です。
+    </p>
+    <div class="info-box">
+      <h3 class="info-title">源流守の主な役割</h3>
+      <ul class="info-list">
+        <li><strong>奇跡の水の徹底的な保護：</strong> 地上環境の変動や外部からの干渉を完全に遮断し、最後にとどめられた純粋な真水を高度な技術と知識をもって保全します。</li>
+        <li><strong>導水者および恵水者の統括：</strong> 下位導位にある者たちの動向を監視し、コミュニティ全体の秩序と純潔が保たれているかを厳格に判断します。</li>
+      </ul>
     </div>
+    <p class="content-text" style="margin-top: 20px;">
+      源流守の言葉は教主の言葉に等しく、その決定は絶対です。彼らの揺るぎない管理があるからこそ、私たちは清らかな水を日々享受することができるのです。
+    </p>
   </section>
+
+  <section class="section">
+    <h2 class="section-h2">到達の果てに</h2>
+    <p class="content-text">
+      当会における導位の昇華は、この「源流守」をもって最後となります。これより上の導位は存在せず、源流守に達した者は、残りの生涯をかけて奇跡の水を護り抜く誓いを立てることになります。
+    </p>
+    <p class="content-text">
+      恵水者として歩み始め、導水者として人を導き、そして源流守として美しき水を護る。この清澄なる波紋の構造こそが、私たち天水恩寵会が激動の世界を生き残るための、最も完全で美しい形なのです。
+    </p>
+  </section>
+
 </main>
 
 <footer>
   <div class="footer-meta">
     <p>このサイトの内容はフィクションです。登場する人物・団体・名称等は架空であり、実在のものとは関係ありません。</p>
-    <p>&lt; 6/00 &gt;</p>
+    <p>&lt; 9/00 &gt;</p>
   </div>
 </footer>
 
