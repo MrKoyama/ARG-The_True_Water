@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>神代防殻結界について | 天水恩寵会</title>
+<title>神代防殻結界 備品管理リスト | 天水恩寵会</title>
 <style>
   body {
     margin: 0;
@@ -135,86 +135,75 @@
   .page-header {
     text-align: center;
     margin-bottom: 50px;
+    border-bottom: 1px dashed #efeae1;
+    padding-bottom: 30px;
   }
 
   .page-title {
-    font-size: 28px;
+    font-size: 24px;
     font-weight: normal;
     color: #8c7e6b;
     margin-bottom: 10px;
   }
 
   .page-subtitle {
-    font-size: 15px;
+    font-size: 14px;
     color: #a69a8a;
-  }
-
-  .main-image {
-    width: 100%;
-    height: auto;
-    border-radius: 4px;
-    margin-bottom: 50px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-  }
-
-  .section {
-    margin-bottom: 60px;
-  }
-
-  .section-h2 {
-    font-size: 22px;
-    font-weight: normal;
-    color: #8c7e6b;
-    border-bottom: 1px solid #efeae1;
-    padding-bottom: 10px;
-    margin-bottom: 25px;
+    font-family: sans-serif;
   }
 
   .content-text {
-    font-size: 15px;
-    line-height: 2;
-    margin-bottom: 20px;
-  }
-
-  .feature-list {
-    background-color: #f7f5f0;
-    padding: 40px;
-    border-radius: 4px;
-    margin-top: 30px;
-  }
-
-  .feature-item {
-    margin-bottom: 30px;
-  }
-
-  .feature-item:last-child {
-    margin-bottom: 0;
-  }
-
-  .feature-item h3 {
-    font-size: 18px;
-    color: #8c7e6b;
-    margin-top: 0;
-    margin-bottom: 10px;
-    font-weight: normal;
-    display: flex;
-    align-items: center;
-  }
-
-  .feature-item h3::before {
-    content: "";
-    display: inline-block;
-    width: 6px;
-    height: 6px;
-    background-color: #bfa888;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
-
-  .feature-item p {
     font-size: 14px;
-    margin: 0;
-    padding-left: 16px;
+    line-height: 2;
+    margin-bottom: 30px;
+    color: #8c7e6b;
+  }
+
+  .inventory-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 50px;
+    background-color: #ffffff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+  }
+
+  .inventory-table th,
+  .inventory-table td {
+    padding: 15px 20px;
+    border: 1px solid #efeae1;
+    text-align: left;
+    font-size: 14px;
+  }
+
+  .inventory-table th {
+    background-color: #f7f5f0;
+    color: #8c7e6b;
+    font-weight: normal;
+    white-space: nowrap;
+  }
+
+  .inventory-table td {
+    color: #5c554d;
+  }
+
+  .item-name {
+    font-weight: bold;
+    color: #8c7e6b;
+  }
+
+  .item-supplier {
+    font-family: sans-serif;
+    font-size: 12px;
+    color: #a69a8a;
+  }
+
+  .status-ok {
+    color: #8c7e6b;
+  }
+
+  .status-warning {
+    color: #cc6666;
+    font-weight: bold;
   }
 
   footer {
@@ -271,8 +260,10 @@
       gap: 15px;
     }
 
-    .feature-list {
-      padding: 20px;
+    .inventory-table {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
     }
   }
 </style>
@@ -307,64 +298,93 @@
 
 <main>
   <div class="page-header">
-    <h1 class="page-title">神代防殻結界について</h1>
-    <p class="page-subtitle">無垢なる源泉を護る、祈りと護りの技術</p>
+    <h1 class="page-title">神代防殻結界 備品管理リスト</h1>
   </div>
 
-  <img src="images/kekkai.png" alt="神代防殻結界のイメージ" class="main-image">
+  <p class="content-text">
+    本リストは、白黎泉の絶対的な清浄を維持するための「神代防殻結界」に必要な備品・資材の在庫状況です。<br>
+    源流守各位は、担当区画の備品に残数が不足している場合、速やかに補充要請を行ってください。<br>
+    ※神聖なる結界を構成する機材であるため、取り扱いには細心の注意を払い、祈りを込めて使用すること。
+  </p>
 
-  <section class="section">
-    <h2 class="section-h2">絶対的な清浄を保つために</h2>
-    <p class="content-text">
-      私たちが授かる奇跡の湧き水「白黎泉」は、あらゆる不浄から隔離された地下深くに存在しています。しかし、教主はさらにその清浄さを永遠のものとするため、特別な保護の祈りを込めた「神代防殻結界（かみしろぼうかくけっかい）」と呼ばれる体制を構築されました。
-    </p>
-    <p class="content-text">
-      この結界は、源流守たちによって厳重に管理されており、いかなる穢れも侵入させることはありません。
-    </p>
-  </section>
-
-  <section class="section">
-    <h2 class="section-h2">結界を構成する三つの護り</h2>
-    <p class="content-text">
-      神代防殻結界は、深い祈りと緻密な管理によって成り立っています。
-    </p>
-
-    <div class="feature-list">
-      <div class="feature-item">
-        <h3>堅牢なる静寂の壁</h3>
-        <p>白黎泉の周囲は、分厚く強固な素材によって四方を完全に覆われています。教主の導きにより、幾層にも重ねられた特殊な防殻が、不浄から源泉を完全に遮断し、永遠の静寂を保つ暗室のような空間を創り出しています。</p>
-      </div>
-
-      <div class="feature-item">
-        <h3>清浄なる息吹</h3>
-        <p>結界内には、外部の穢れた空気が入り込まないよう、常に聖域の内側から外側へと清らかな圧力がかけられています。また、定期的に交換される「清めの濾過布」を通して送られる息吹により、ほんの僅かな微粒子すらも、この不浄な外界から侵入することは決してありません。</p>
-      </div>
-
-      <div class="feature-item">
-        <h3>源流守の祈りと監視</h3>
-        <p>選ばれた最高位の導位を持つ「源流守」たちが、結界の入り口にて二十四時間体制で祈りを捧げています。水質に微細な乱れが生じていないか、光や温度の揺らぎがないかを、彼らの研ぎ澄まされた感覚と複数の観測計器を用いて常に監視し続けているのです。</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <h2 class="section-h2">護られし恵み</h2>
-    <p class="content-text">
-      分厚い壁で囲い、外気を遮断し、厳重に人が管理する。この神代防殻結界の存在があるからこそ、白黎泉の水は湧き出た瞬間の無垢な状態のまま、安全に私たちの手元へと届けられます。
-    </p>
-    <p class="content-text">
-      教主と源流守たちの絶え間ない献身と、この結界の加護に感謝し、私たちは今日も奇跡の水を分かち合うのです。
-    </p>
-  </section>
+  <table class="inventory-table">
+    <thead>
+      <tr>
+        <th>品目名（用途）</th>
+        <th>仕入元 / 型番</th>
+        <th>在庫数</th>
+        <th>状態 / 備考</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <span class="item-name">清めの濾過布（微粒子用）</span><br>
+        </td>
+        <td class="item-supplier">ヤシロ重工<br>HEPA-Type-R99</td>
+        <td>12 箱</td>
+        <td class="status-warning">発注残あり（納入遅延）<br>※次期交換日に間に合わない恐れあり。至急確認のこと。</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="item-name">防殻隔壁用 密閉樹脂</span><br>
+        </td>
+        <td class="item-supplier">ヤシロ重工<br>Sealant-X7</td>
+        <td>45 缶</td>
+        <td class="status-ok">十分</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="item-name">浄化の白衣（重防護仕様）</span><br>
+        </td>
+        <td class="item-supplier">（教団専用特注品）<br>Hazmat-W-Class3</td>
+        <td>15 着</td>
+        <td class="status-ok">各サイズの予備あり。使用後は必ず指定の除染槽へ。</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="item-name">空間清浄度 観測器（携帯型）</span><br>
+        </td>
+        <td class="item-supplier">ヤシロ重工<br>Geiger-M-Sens</td>
+        <td>5 台</td>
+        <td class="status-ok">定期校正済み。常に携行すること。</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="item-name">奉納用 透明樹脂容器</span><br>
+        </td>
+        <td class="item-supplier">一般備品<br>PET-500ml-Clear</td>
+        <td>8,500 本</td>
+        <td class="status-ok">十分</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="item-name">結界浄化剤（水質安定用）</span><br>
+        </td>
+        <td class="item-supplier">ヤシロ重工<br>Chem-Purifier-B</td>
+        <td>20 Kg</td>
+        <td class="status-ok">厳重保管庫（第3層）にて保管。</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="item-name">非常用 携行酸素生成器</span><br>
+        </td>
+        <td class="item-supplier">ヤシロ重工<br>O2-Gen-Portable</td>
+        <td>10 基</td>
+        <td class="status-warning">バッテリー劣化の兆候あり。来月点検予定。</td>
+      </tr>
+    </tbody>
+  </table>
 
 </main>
 
 <footer>
   <div class="footer-meta">
     <p>このサイトの内容はフィクションです。登場する人物・団体・名称等は架空のものであり、実在のものとは関係ありません。</p>
-    <p>&lt; 13/00 &gt;</p>
+    <p>&lt; 14/00 &gt;</p>
   </div>
 </footer>
+
 
 <script>
   const hamburger = document.getElementById('hamburger');

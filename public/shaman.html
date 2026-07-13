@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>水質検査実施要項 | 天水恩寵会</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: "Yu Mincho", "MS PMincho", "Hiragino Mincho ProN", serif;
+    background-color: #fdfcf9;
+    color: #5c554d;
+    line-height: 1.8;
+    letter-spacing: 0.05em;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #efeae1;
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .logo-link {
+    display: block;
+    width: 150px;
+  }
+
+  .logo-link img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .header-controls {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .nav-menu {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+  }
+
+  .nav-menu a {
+    font-size: 14px;
+    transition: color 0.3s;
+  }
+
+  .nav-menu a:hover,
+  .nav-menu a.active {
+    color: #bfa888;
+  }
+
+  .search-form {
+    display: flex;
+    align-items: center;
+    border: 1px solid #efeae1;
+    border-radius: 20px;
+    background-color: #f7f5f0;
+    overflow: hidden;
+  }
+
+  .search-input {
+    border: none;
+    background: transparent;
+    padding: 8px 10px 8px 15px;
+    font-size: 13px;
+    color: #5c554d;
+    outline: none;
+    width: 150px;
+    font-family: inherit;
+  }
+
+  .search-input::placeholder {
+    color: #a69a8a;
+  }
+
+  .search-button {
+    border: none;
+    background: #bfa888;
+    color: #ffffff;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 13px;
+    font-family: inherit;
+    outline: none;
+    transition: background-color 0.3s;
+  }
+
+  .search-button:hover {
+    background-color: #a68f6d;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 25px;
+    height: 1px;
+    background-color: #5c554d;
+    transition: 0.3s;
+  }
+
+  main {
+    flex: 1;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    box-sizing: border-box;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 50px;
+    border-bottom: 1px dashed #efeae1;
+    padding-bottom: 30px;
+  }
+
+  .page-title {
+    font-size: 24px;
+    font-weight: normal;
+    color: #8c7e6b;
+    margin-bottom: 10px;
+  }
+
+  .page-subtitle {
+    font-size: 14px;
+    color: #a69a8a;
+    font-family: sans-serif;
+  }
+
+  .section {
+    margin-bottom: 60px;
+  }
+
+  .section-h2 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #8c7e6b;
+    border-bottom: 1px solid #efeae1;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+  }
+
+  .content-text {
+    font-size: 14px;
+    line-height: 2;
+    margin-bottom: 20px;
+  }
+
+  .important-box {
+    background-color: #fff9f5;
+    border: 1px solid #f2e6e6;
+    padding: 30px;
+    border-radius: 4px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+  }
+
+  .important-title {
+    font-size: 16px;
+    color: #cc6666;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  .checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .checklist li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 12px;
+    font-size: 14px;
+  }
+
+  .checklist li::before {
+    content: "■";
+    position: absolute;
+    left: 0;
+    color: #8c7e6b;
+    font-size: 10px;
+    top: 5px;
+  }
+
+  .table-container {
+    overflow-x: auto;
+    margin-bottom: 40px;
+  }
+
+  .spec-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+  }
+
+  .spec-table th,
+  .spec-table td {
+    padding: 12px 15px;
+    border: 1px solid #efeae1;
+    text-align: left;
+    font-size: 13px;
+    font-family: sans-serif;
+  }
+
+  .spec-table th {
+    background-color: #f7f5f0;
+    color: #8c7e6b;
+    font-weight: bold;
+    white-space: nowrap;
+  }
+
+  .spec-table td {
+    color: #5c554d;
+  }
+
+  .data-link-container {
+    text-align: center;
+    margin-top: 50px;
+    padding: 30px;
+    background-color: #f7f5f0;
+    border-radius: 4px;
+  }
+
+  .data-link {
+    display: inline-block;
+    background-color: #bfa888;
+    color: #ffffff;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-size: 14px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+
+  .data-link:hover {
+    background-color: #a68f6d;
+  }
+
+  footer {
+    background-color: #ffffff;
+    border-top: 1px solid #efeae1;
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .footer-meta {
+    font-size: 11px;
+    color: #b3b3b3;
+    font-family: sans-serif;
+  }
+
+  .footer-meta p {
+    margin: 5px 0;
+  }
+
+  @media (max-width: 900px) {
+    .nav-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: #ffffff;
+      flex-direction: column;
+      gap: 0;
+      border-bottom: 1px solid #efeae1;
+      display: none;
+    }
+
+    .nav-menu.active {
+      display: flex;
+    }
+
+    .nav-menu a {
+      padding: 20px;
+      border-top: 1px solid #f9f8f6;
+      text-align: center;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .hamburger {
+      display: flex;
+    }
+
+    .search-input {
+      width: 100px;
+    }
+
+    .header-controls {
+      gap: 15px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="about.html" class="logo-link">
+    <img src="images/logo.png" alt="天水恩寵会">
+  </a>
+  
+  <div class="header-controls">
+    <nav class="nav-menu" id="navMenu">
+      <a href="about.html">天水恩寵会について</a>
+      <a href="founder.html">教主の歩み</a>
+      <a href="water.html">奇跡の水</a>
+      <a href="contact.html">ご入信・お問い合わせ</a>
+    </nav>
+
+    <form class="search-form" action="search.html" method="GET">
+      <input type="text" name="q" class="search-input" placeholder="サイト内検索" autocomplete="off">
+      <button type="submit" class="search-button">検索</button>
+    </form>
+
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="page-header">
+    <h1 class="page-title">【管理用】水質検査実施要項（外部委託用）</h1>
+    <p class="page-subtitle">委託先：日本環境分析センター 様 / 対象：白黎泉</p>
+  </div>
+
+  <section class="section">
+    <h2 class="section-h2">1. 業務概要および入館時の偽装規定</h2>
+    <p class="content-text">
+      当施設「白黎泉」の水質に関する定期サンプリング・多項目成分分析業務を委託するにあたり、以下の規定を厳守すること。<br>
+      当会は宗教法人として活動しており、施設内には末端の信徒や「源流守」と呼ばれる施設管理スタッフが常駐している。彼らに本検査の真の目的（科学的分析）を知られることは、教団の運営上極めて重大なリスクとなる。
+    </p>
+
+    <div class="important-box">
+      <h3 class="important-title">【重要】入館・サンプリング時の厳守事項</h3>
+      <ul class="checklist">
+        <li>入館は必ず指定された水曜日の深夜 02:00 に、第2搬入口から行うこと。</li>
+        <li>作業員は、当会が用意する「祈祷師の装束」を必ず着用の上で入館すること。</li>
+        <li>サンプリング用の機材は、木箱などの「儀式用の祭具」を模したケースに収納して持ち込むこと。</li>
+        <li>施設内の源流守から声をかけられた場合は、「教主様より遣わされた祈祷師である」と名乗り、不要な会話は一切避けること。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-h2">2. 検査項目および基準値</h2>
+    <p class="content-text">
+      通常の飲料水水質基準に加え、当会が独自に指定する以下の全項目について、極限まで感度を上げた精密分析を実施すること。<br>
+      ※いずれかの項目において基準値を0.001%でも超過した場合は、直ちに教主（水原）の緊急直通回線へ報告すること。
+    </p>
+
+    <div class="table-container">
+      <table class="spec-table">
+        <thead>
+          <tr>
+            <th>検査項目（分類）</th>
+            <th>当会要求 基準値 / 検出限界</th>
+            <th>備考・目的</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>一般細菌 / 大腸菌（生物系）</td>
+            <td>検出されないこと</td>
+            <td>基本項目。無菌状態の維持確認。</td>
+          </tr>
+          <tr>
+            <td>水素イオン濃度 (pH)</td>
+            <td>5.8 ～ 8.6</td>
+            <td>基本項目。水質の基礎安定性の確認。</td>
+          </tr>
+          <tr>
+            <td>重金属類（鉛、水銀、カドミウム等）</td>
+            <td>法定基準の 1/1000 未満</td>
+            <td>地下水脈および配管からの微細な溶出・汚染を監視。</td>
+          </tr>
+          <tr>
+            <td>揮発性有機化合物 (VOCs)</td>
+            <td>検出されないこと</td>
+            <td>大気や土壌からの化学物質の浸透を監視。</td>
+          </tr>
+          <tr>
+            <td>ミネラル含有量（カルシウム、マグネシウム等）</td>
+            <td>規定の成分比率を維持</td>
+            <td>水脈の地質的変化、枯渇の兆候を監視。</td>
+          </tr>
+          <tr>
+            <td>微量放射性物質 (3H, 137Cs 等)</td>
+            <td>0.01 Bq/L 未満</td>
+            <td>環境変動による広域的な影響の有無を監視。</td>
+          </tr>
+          <tr>
+            <td>硝酸態窒素および亜硝酸態窒素</td>
+            <td>1.0 mg/L 以下</td>
+            <td>地表からの有機汚染（肥料、生活排水等）の浸透監視。</td>
+          </tr>
+          <tr>
+            <td>過マンガン酸カリウム消費量</td>
+            <td>1.0 mg/L 以下</td>
+            <td>水中の有機物量の極微細な変動を監視。</td>
+          </tr>
+          <tr>
+            <td>濁度 / 色度</td>
+            <td>濁度 0.1度以下 / 色度 1度以下</td>
+            <td>物理的な浮遊物、微粒子の混入を監視。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="data-link-container">
+      <p class="content-text" style="margin-bottom: 15px; text-align: center;">
+        過去のサンプリング分析結果は、以下のリンクよりご確認いただけます。<br>
+      </p>
+      <a href="water_analysis.html" class="data-link">水質データ管理ページへ</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-meta">
+    <p>このサイトの内容はフィクションです。登場する人物・団体・名称等は架空のものであり、実在のものとは関係ありません。</p>
+    <p>&lt; 16/00 &gt;</p>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.getElementById('navMenu');
+
+  hamburger.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+</script>
+</body>
+</html>
