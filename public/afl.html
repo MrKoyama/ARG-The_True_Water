@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>アストロ・フロント・ラボラトリー | 天水恩寵会</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: "Yu Mincho", "MS PMincho", "Hiragino Mincho ProN", serif;
+    background-color: #fdfcf9;
+    color: #5c554d;
+    line-height: 1.8;
+    letter-spacing: 0.05em;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #efeae1;
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .logo-link {
+    display: block;
+    width: 150px;
+  }
+
+  .logo-link img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .header-controls {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .nav-menu {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+  }
+
+  .nav-menu a {
+    font-size: 14px;
+    transition: color 0.3s;
+  }
+
+  .nav-menu a:hover,
+  .nav-menu a.active {
+    color: #bfa888;
+  }
+
+  .search-form {
+    display: flex;
+    align-items: center;
+    border: 1px solid #efeae1;
+    border-radius: 20px;
+    background-color: #f7f5f0;
+    overflow: hidden;
+  }
+
+  .search-input {
+    border: none;
+    background: transparent;
+    padding: 8px 10px 8px 15px;
+    font-size: 13px;
+    color: #5c554d;
+    outline: none;
+    width: 150px;
+    font-family: inherit;
+  }
+
+  .search-input::placeholder {
+    color: #a69a8a;
+  }
+
+  .search-button {
+    border: none;
+    background: #bfa888;
+    color: #ffffff;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 13px;
+    font-family: inherit;
+    outline: none;
+    transition: background-color 0.3s;
+  }
+
+  .search-button:hover {
+    background-color: #a68f6d;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 25px;
+    height: 1px;
+    background-color: #5c554d;
+    transition: 0.3s;
+  }
+
+  main {
+    flex: 1;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    box-sizing: border-box;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 50px;
+    border-bottom: 1px dashed #efeae1;
+    padding-bottom: 30px;
+  }
+
+  .page-title {
+    font-size: 24px;
+    font-weight: normal;
+    color: #8c7e6b;
+    margin-bottom: 10px;
+  }
+
+  .page-subtitle {
+    font-size: 14px;
+    color: #a69a8a;
+    font-family: sans-serif;
+  }
+
+  .content-text {
+    font-size: 14px;
+    line-height: 2;
+    margin-bottom: 20px;
+    color: #5c554d;
+  }
+
+  .ss-container {
+    width: 100%;
+    margin-bottom: 40px;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid #efeae1;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+  }
+
+  .ss-image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .translation-container {
+    background-color: #fcfbf9;
+    border: 1px solid #dcdcdc;
+    padding: 40px;
+    border-radius: 4px;
+    margin-bottom: 40px;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    color: #333;
+  }
+  
+  .translation-header {
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .translation-header h2 {
+    font-size: 18px;
+    color: #666;
+    margin: 0;
+    font-weight: normal;
+  }
+
+  .afl-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+  }
+
+  .afl-text {
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+
+  .afl-highlight {
+    background-color: #fff0f0;
+    border-left: 4px solid #cc6666;
+    padding: 15px;
+    margin-top: 30px;
+    font-weight: bold;
+  }
+
+  .church-comment {
+    background-color: #f7f5f0;
+    padding: 30px;
+    border-radius: 4px;
+    border-left: 4px solid #bfa888;
+    margin-top: 40px;
+  }
+
+  .church-comment h3 {
+    font-size: 16px;
+    color: #8c7e6b;
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+
+  .church-link {
+    display: inline-block;
+    color: #bfa888;
+    text-decoration: underline;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .church-link:hover {
+    color: #a68f6d;
+  }
+
+  footer {
+    background-color: #ffffff;
+    border-top: 1px solid #efeae1;
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .footer-meta {
+    font-size: 11px;
+    color: #b3b3b3;
+    font-family: sans-serif;
+  }
+
+  .footer-meta p {
+    margin: 5px 0;
+  }
+
+  @media (max-width: 900px) {
+    .nav-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: #ffffff;
+      flex-direction: column;
+      gap: 0;
+      border-bottom: 1px solid #efeae1;
+      display: none;
+    }
+
+    .nav-menu.active {
+      display: flex;
+    }
+
+    .nav-menu a {
+      padding: 20px;
+      border-top: 1px solid #f9f8f6;
+      text-align: center;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .hamburger {
+      display: flex;
+    }
+
+    .search-input {
+      width: 100px;
+    }
+
+    .header-controls {
+      gap: 15px;
+    }
+    
+    .translation-container {
+      padding: 20px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="about.html" class="logo-link">
+    <img src="images/logo.png" alt="天水恩寵会">
+  </a>
+  
+  <div class="header-controls">
+    <nav class="nav-menu" id="navMenu">
+      <a href="about.html">天水恩寵会について</a>
+      <a href="founder.html">教主の歩み</a>
+      <a href="water.html">奇跡の水</a>
+      <a href="contact.html">ご入信・お問い合わせ</a>
+    </nav>
+
+    <form class="search-form" action="search.html" method="GET">
+      <input type="text" name="q" class="search-input" placeholder="サイト内検索" autocomplete="off">
+      <button type="submit" class="search-button">検索</button>
+    </form>
+
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="page-header">
+    <h1 class="page-title">【資料保管庫】AFL公式声明アーカイブ</h1>
+    <p class="page-subtitle">初代開祖が在籍していた機関による、最後の警告</p>
+  </div>
+
+  <p class="content-text" style="text-align: center; color: #8c7e6b;">
+    以下は、初代開祖・水原宗一がかつて所属していた「アストロ・フロント・ラボラトリー（AFL）」が、数年前に発表した公式な声明文のスクリーンショット（英語原文）および、当会による日本語訳のアーカイブです。この文書は現在、公的な記録からは抹消されています。
+  </p>
+
+  <div class="ss-container">
+    <img src="images/afl-screenshot.png" alt="AFL公式声明のスクリーンショット" class="ss-image">
+  </div>
+
+  <div class="translation-container">
+    <div class="translation-header">
+      <h2>【和訳】AFL Press Release - [DATE REDACTED]</h2>
+    </div>
+    
+    <h3 class="afl-title">公式声明：大気圏上層部の異常減衰および地表への宇宙線到達量に関する調査報告</h3>
+    
+    <p class="afl-text">
+      当研究所（AFL）環境動態観測部門は、過去10年間にわたる人工衛星および高高度観測気球からのデータを解析した結果、地球の大気圏上層部（特にオゾン層を含む成層圏）において、既存の気候変動モデルでは説明不可能なレベルの「急激な層厚の減衰（透過率の上昇）」を確認いたしました。
+    </p>
+    
+    <p class="afl-text">
+      この大気バリアの減衰に伴い、太陽および銀河系外から飛来する高エネルギー粒子、すなわち「宇宙線」の地表への到達量が異常なペースで増加しています。当部門の最新の測定によれば、本年度の地表における宇宙線検出量は、前年同月比で実に<strong>約80倍</strong>という極めて危険な数値に達しています。
+    </p>
+    
+    <p class="afl-text">
+      添付の推移グラフが示す通り、この異常な上昇傾向は今からちょうど4年前を境に突如として始まりました。現在もその勢いは衰えることなく、指数関数的な増加を続けています。
+    </p>
+
+    <div class="afl-highlight">
+      【結論および予測】<br>
+      このまま大気の減衰と宇宙線の増加が進行した場合、地表に存在するあらゆる生態系は致命的な被曝を免れません。特に懸念されるのが「地表水（河川、湖沼、浅層地下水）の不可逆的な汚染」です。
+      我々のシミュレーションでは、数年以内に地球上の未防護の水源はすべて、人類が飲用不可能なレベルへと変質する可能性が高いと予測されます。
+    </div>
+    
+    <p class="afl-text" style="margin-top: 20px;">
+      当研究所は、政府および各国際機関に対し、早急なる地下シェルターの構築および、深層地下水脈の保護計画の策定を強く提言いたします。
+    </p>
+  </div>
+
+  <div class="church-comment">
+    <h3>【守護聖務部より 追記】</h3>
+    <p class="content-text">
+      この絶望的な報告書が発表された後、なぜ大衆はパニックを起こさなかったのでしょうか。それは、この真実があまりに巨大すぎたため、国家権力によって即座に隠蔽されたからです。
+    </p>
+    <p class="content-text">
+      初代開祖は、このデータを取りまとめた中心人物でありながら、社会がこれに目を背ける姿を見て深く絶望されました。そしてAFLを去り、自らの手で人類の命脈を繋ぐための「白黎泉」を見出し、天水恩寵会を設立されたのです。
+    </p>
+    <p class="content-text">
+      この容赦のない「天からの脅威」に対し、開祖がどのような行動を起こし、そして第二代教主がどのようにして我々を生存へと導こうとされているのか。その深き真意と選別の計画については、別途記された教主の声明をご確認ください。
+    </p>
+    <a href="selection-program.html" class="church-link">第二代教主の真意と「天水士選別計画」について</a>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-meta">
+    <p>このサイトの内容はフィクションです。登場する人物・団体・名称等は架空のものであり、実在のものとは関係ありません。</p>
+    <p>&lt; 22/00 &gt;</p>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.getElementById('navMenu');
+
+  hamburger.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+</script>
+</body>
+</html>

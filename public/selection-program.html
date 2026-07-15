@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>天水士選別計画 | 天水恩寵会</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: "Yu Mincho", "MS PMincho", "Hiragino Mincho ProN", serif;
+    background-color: #fdfcf9;
+    color: #5c554d;
+    line-height: 1.8;
+    letter-spacing: 0.05em;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #efeae1;
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .logo-link {
+    display: block;
+    width: 150px;
+  }
+
+  .logo-link img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .header-controls {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .nav-menu {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+  }
+
+  .nav-menu a {
+    font-size: 14px;
+    transition: color 0.3s;
+  }
+
+  .nav-menu a:hover,
+  .nav-menu a.active {
+    color: #bfa888;
+  }
+
+  .search-form {
+    display: flex;
+    align-items: center;
+    border: 1px solid #efeae1;
+    border-radius: 20px;
+    background-color: #f7f5f0;
+    overflow: hidden;
+  }
+
+  .search-input {
+    border: none;
+    background: transparent;
+    padding: 8px 10px 8px 15px;
+    font-size: 13px;
+    color: #5c554d;
+    outline: none;
+    width: 150px;
+    font-family: inherit;
+  }
+
+  .search-input::placeholder {
+    color: #a69a8a;
+  }
+
+  .search-button {
+    border: none;
+    background: #bfa888;
+    color: #ffffff;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 13px;
+    font-family: inherit;
+    outline: none;
+    transition: background-color 0.3s;
+  }
+
+  .search-button:hover {
+    background-color: #a68f6d;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 25px;
+    height: 1px;
+    background-color: #5c554d;
+    transition: 0.3s;
+  }
+
+  main {
+    flex: 1;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Authentication Section */
+  #authSection {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+
+  #contentSection {
+    display: none;
+  }
+
+  .auth-container {
+    background-color: #ffffff;
+    border: 1px solid #efeae1;
+    border-radius: 4px;
+    padding: 50px 40px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+    text-align: center;
+  }
+
+  .auth-title {
+    font-size: 24px;
+    font-weight: normal;
+    color: #8c7e6b;
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+
+  .auth-text {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #a69a8a;
+    margin-bottom: 30px;
+  }
+
+  .password-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .password-input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #efeae1;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 16px;
+    color: #5c554d;
+    box-sizing: border-box;
+    background-color: #fdfcf9;
+    transition: border-color 0.3s;
+    text-align: center;
+    letter-spacing: 0.1em;
+  }
+
+  .password-input:focus {
+    outline: none;
+    border-color: #bfa888;
+  }
+
+  .submit-btn {
+    width: 100%;
+    background-color: #bfa888;
+    color: #ffffff;
+    border: none;
+    padding: 15px;
+    font-size: 15px;
+    font-family: inherit;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .submit-btn:hover {
+    background-color: #a68f6d;
+  }
+
+  .error-message {
+    display: none;
+    color: #cc6666;
+    font-size: 13px;
+    margin-top: 15px;
+  }
+
+  /* Content Section */
+  .page-header {
+    text-align: center;
+    margin-bottom: 50px;
+    border-bottom: 1px dashed #efeae1;
+    padding-bottom: 30px;
+  }
+
+  .page-title {
+    font-size: 24px;
+    font-weight: normal;
+    color: #8c7e6b;
+    margin-bottom: 10px;
+  }
+
+  .page-subtitle {
+    font-size: 14px;
+    color: #cc6666; /* 警告や裏の顔を示すために少し赤みを入れる */
+    font-family: sans-serif;
+    letter-spacing: 0.1em;
+  }
+
+  .section {
+    margin-bottom: 60px;
+  }
+
+  .section-h2 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #8c7e6b;
+    border-bottom: 1px solid #efeae1;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+  }
+
+  .content-text {
+    font-size: 15px;
+    line-height: 2;
+    margin-bottom: 20px;
+  }
+
+  .confession-box {
+    background-color: #fcfbf9;
+    border: 1px solid #dcdcdc;
+    padding: 40px;
+    border-radius: 4px;
+    margin-top: 30px;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.01);
+  }
+
+  .confession-box p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  .confession-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  .important-highlight {
+    background-color: #fff0f0;
+    border-left: 4px solid #cc6666;
+    padding: 20px;
+    margin: 40px 0;
+  }
+
+  .important-highlight h3 {
+    color: #cc6666;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 18px;
+  }
+
+  .important-highlight p {
+    margin: 0 0 10px 0;
+    color: #333;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .password-display {
+    display: inline-block;
+    background-color: #333;
+    color: #fff;
+    padding: 5px 10px;
+    font-family: monospace;
+    letter-spacing: 0.1em;
+    border-radius: 2px;
+  }
+
+  footer {
+    background-color: #ffffff;
+    border-top: 1px solid #efeae1;
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .footer-meta {
+    font-size: 11px;
+    color: #b3b3b3;
+    font-family: sans-serif;
+  }
+
+  .footer-meta p {
+    margin: 5px 0;
+  }
+
+  @media (max-width: 900px) {
+    .nav-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: #ffffff;
+      flex-direction: column;
+      gap: 0;
+      border-bottom: 1px solid #efeae1;
+      display: none;
+    }
+
+    .nav-menu.active {
+      display: flex;
+    }
+
+    .nav-menu a {
+      padding: 20px;
+      border-top: 1px solid #f9f8f6;
+      text-align: center;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .hamburger {
+      display: flex;
+    }
+
+    .search-input {
+      width: 100px;
+    }
+
+    .header-controls {
+      gap: 15px;
+    }
+
+    .confession-box, .important-highlight {
+      padding: 20px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="about.html" class="logo-link">
+    <img src="images/logo.png" alt="天水恩寵会">
+  </a>
+  
+  <div class="header-controls">
+    <nav class="nav-menu" id="navMenu">
+      <a href="about.html">天水恩寵会について</a>
+      <a href="founder.html">教主の歩み</a>
+      <a href="water.html">奇跡の水</a>
+      <a href="contact.html">ご入信・お問い合わせ</a>
+    </nav>
+
+    <form class="search-form" action="search.html" method="GET">
+      <input type="text" name="q" class="search-input" placeholder="サイト内検索" autocomplete="off">
+      <button type="submit" class="search-button">検索</button>
+    </form>
+
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- Authentication Section -->
+  <div id="authSection">
+    <div class="auth-container">
+      <h1 class="auth-title">アクセス制限</h1>
+      <p class="auth-text">
+        このページは教団の「真意」に触れる極秘指定領域です。<br>
+        閲覧を許可された方は、指定のパスワードをご入力ください。
+      </p>
+      <form class="password-form" id="passwordForm">
+        <input type="password" id="passwordInput" class="password-input" placeholder="パスワードを入力" autocomplete="off">
+        <button type="submit" class="submit-btn">真理の扉を開く</button>
+      </form>
+      <p class="error-message" id="errorMessage">パスワードが正しくありません。</p>
+    </div>
+  </div>
+
+  <!-- Content Section -->
+  <div id="contentSection">
+    <div class="page-header">
+      <h1 class="page-title">【機密】第二代教主の真意と「天水士選別計画」</h1>
+      <p class="page-subtitle">CLASSIFIED: FOR SELECTED EYES ONLY</p>
+    </div>
+
+    <div class="confession-box">
+      <p>
+        ここまで辿り着いた君に、敬意を表する。<br>
+        AFLのアーカイブを読み解いたなら、もう気づいているだろう。父である初代・水原宗一が幻視した「天からの脅威」とは、決して比喩などではない。オゾン層の致命的な崩壊と、それに伴う宇宙線の異常な増加。それは現在進行形で起きている、覆しようのない物理的な絶望だ。
+      </p>
+      <p>
+        数年後、地球上のあらゆる地表水源は放射線によって完全に汚染され、人類は水という命の源を絶たれることになる。父はこの事実に耐えきれず、絶望の末に自ら命を絶った。「奇跡の水」などというものは存在しない。私たちが莫大な費用と資材を投じて護っている「白黎泉」は、ただ単に宇宙線の届かない分厚い岩盤の下にある、<strong>汚染されていないただの地下水</strong>に過ぎないのだ。
+      </p>
+      <p>
+        では、なぜ私が「天水恩寵会」という宗教の仮面を被り、人々を騙し続けているのか。<br>
+        それは、この圧倒的な絶望を乗り越え、生存のための「箱舟」を構築するためだ。だが、パニックを起こすだけの無知な大衆をすべて救うことは不可能だ。有限である水を分かち合い、地下シェルターの機能を維持し、迫り来る脅威への対処法を共に探求するためには、<strong>事象を論理的に分析し、隠された真実を自力で暴き出すことができる「極めて優秀な知性と探究心」を持つ人材</strong>が必要不可欠なのだ。
+      </p>
+      <p>
+        私はその優秀な人材を「天水士（てんすいし）」と名付けた。そして、この宗教団体そのものが、天水士を見つけ出すための壮大な「選別テスト」なのだ。
+      </p>
+    </div>
+
+    <div class="important-highlight">
+      <h3>【最終選別への招待】</h3>
+      <p>
+        君がこのページを読んでいるということは、用意したすべての矛盾と嘘を見抜き、私の真意に辿り着いたということだ。君の探究心こそが、我々が求めている「天水士」の資質に他ならない。
+      </p>
+      <p>
+        我々と共に深淵の底で生き残り、人類の未来を紡ぐ意志があるのなら、最終選別の扉を開け。<br>
+        更なる深層の情報、そして「天水士」として箱舟へ乗船するための最終手続きは、以下のパスワードを用いてアクセス制限ページ（ex/00）を解放することで行われる。
+      </p>
+      <p style="margin-top: 15px;">
+        最終アクセス・パスワード： <span class="password-display">ozone</span>
+      </p>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-meta">
+    <p>このサイトの内容はフィクションです。登場する人物・団体・名称等は架空のものであり、実在のものとは関係ありません。</p>
+    <p>&lt; 23/00 &gt;</p>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.getElementById('navMenu');
+
+  hamburger.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+
+  // Password Logic
+  const passwordForm = document.getElementById('passwordForm');
+  const passwordInput = document.getElementById('passwordInput');
+  const errorMessage = document.getElementById('errorMessage');
+  const authSection = document.getElementById('authSection');
+  const contentSection = document.getElementById('contentSection');
+
+  passwordForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const inputVal = passwordInput.value.trim();
+    
+    // 正しいパスワード
+    if (inputVal === "living_water") {
+      authSection.style.display = 'none';
+      contentSection.style.display = 'block';
+    } else {
+      errorMessage.style.display = 'block';
+      passwordInput.value = "";
+    }
+  });
+
+  passwordInput.addEventListener('input', function() {
+    errorMessage.style.display = 'none';
+  });
+</script>
+</body>
+</html>
