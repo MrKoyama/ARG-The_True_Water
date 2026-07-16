@@ -133,98 +133,7 @@
     display: flex;
     flex-direction: column;
   }
-  
-  /* Authentication Section */
-  #authSection {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 40px 20px;
-  }
 
-  #contentSection {
-    display: none;
-  }
-
-  .auth-container {
-    background-color: #ffffff;
-    border: 1px solid #efeae1;
-    border-radius: 4px;
-    padding: 50px 40px;
-    width: 100%;
-    max-width: 500px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
-    text-align: center;
-  }
-
-  .auth-title {
-    font-size: 24px;
-    font-weight: normal;
-    color: #8c7e6b;
-    margin-top: 0;
-    margin-bottom: 15px;
-  }
-
-  .auth-text {
-    font-size: 14px;
-    line-height: 1.8;
-    color: #a69a8a;
-    margin-bottom: 30px;
-  }
-
-  .password-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .password-input {
-    width: 100%;
-    padding: 15px;
-    border: 1px solid #efeae1;
-    border-radius: 4px;
-    font-family: inherit;
-    font-size: 16px;
-    color: #5c554d;
-    box-sizing: border-box;
-    background-color: #fdfcf9;
-    transition: border-color 0.3s;
-    text-align: center;
-    letter-spacing: 0.1em;
-  }
-
-  .password-input:focus {
-    outline: none;
-    border-color: #bfa888;
-  }
-
-  .submit-btn {
-    width: 100%;
-    background-color: #bfa888;
-    color: #ffffff;
-    border: none;
-    padding: 15px;
-    font-size: 15px;
-    font-family: inherit;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-
-  .submit-btn:hover {
-    background-color: #a68f6d;
-  }
-
-  .error-message {
-    display: none;
-    color: #cc6666;
-    font-size: 13px;
-    margin-top: 15px;
-  }
-
-  /* Content Section */
   .page-header {
     text-align: center;
     margin-bottom: 50px;
@@ -239,38 +148,12 @@
     margin-bottom: 10px;
   }
 
-  .page-subtitle {
-    font-size: 14px;
-    color: #cc6666; /* 警告や裏の顔を示すために少し赤みを入れる */
-    font-family: sans-serif;
-    letter-spacing: 0.1em;
-  }
-
-  .section {
-    margin-bottom: 60px;
-  }
-
-  .section-h2 {
-    font-size: 20px;
-    font-weight: bold;
-    color: #8c7e6b;
-    border-bottom: 1px solid #efeae1;
-    padding-bottom: 10px;
-    margin-bottom: 25px;
-  }
-
-  .content-text {
-    font-size: 15px;
-    line-height: 2;
-    margin-bottom: 20px;
-  }
-
   .confession-box {
     background-color: #fcfbf9;
     border: 1px solid #dcdcdc;
     padding: 40px;
     border-radius: 4px;
-    margin-top: 30px;
+    margin-top: 10px;
     box-shadow: inset 0 0 20px rgba(0,0,0,0.01);
   }
 
@@ -286,34 +169,40 @@
   }
 
   .important-highlight {
-    background-color: #fff0f0;
-    border-left: 4px solid #cc6666;
-    padding: 20px;
+    background-color: #f7f5f0;
+    border-left: 4px solid #8c7e6b;
+    padding: 30px;
     margin: 40px 0;
+    border-radius: 0 4px 4px 0;
   }
 
   .important-highlight h3 {
-    color: #cc6666;
+    color: #5c554d;
     margin-top: 0;
     margin-bottom: 15px;
     font-size: 18px;
   }
 
   .important-highlight p {
-    margin: 0 0 10px 0;
+    margin: 0 0 15px 0;
     color: #333;
     font-size: 14px;
     line-height: 1.6;
   }
+  
+  .important-highlight p:last-child {
+    margin-bottom: 0;
+  }
 
   .password-display {
     display: inline-block;
-    background-color: #333;
-    color: #fff;
+    background-color: #e8e4dc;
+    color: #333;
     padding: 5px 10px;
     font-family: monospace;
     letter-spacing: 0.1em;
     border-radius: 2px;
+    font-weight: bold;
   }
 
   footer {
@@ -405,59 +294,37 @@
 </header>
 
 <main>
-  <!-- Authentication Section -->
-  <div id="authSection">
-    <div class="auth-container">
-      <h1 class="auth-title">アクセス制限</h1>
-      <p class="auth-text">
-        このページは教団の「真意」に触れる極秘指定領域です。<br>
-        閲覧を許可された方は、指定のパスワードをご入力ください。
-      </p>
-      <form class="password-form" id="passwordForm">
-        <input type="password" id="passwordInput" class="password-input" placeholder="パスワードを入力" autocomplete="off">
-        <button type="submit" class="submit-btn">真理の扉を開く</button>
-      </form>
-      <p class="error-message" id="errorMessage">パスワードが正しくありません。</p>
-    </div>
+  <div class="page-header">
+    <h1 class="page-title">【機密】第二代教主の真意と「天水士選別計画」</h1>
   </div>
 
-  <!-- Content Section -->
-  <div id="contentSection">
-    <div class="page-header">
-      <h1 class="page-title">【機密】第二代教主の真意と「天水士選別計画」</h1>
-      <p class="page-subtitle">CLASSIFIED: FOR SELECTED EYES ONLY</p>
-    </div>
+  <div class="confession-box">
+    <p>
+      ここまで到達されたあなたに、まずは深い敬意を表します。<br>
+      AFLのアーカイブ記録を読み解かれたのであれば、すでにご理解いただいていることでしょう。父である初代・水原宗一が観測した「大気圏上層部の異常減衰と宇宙線の増加」は、決して誇張や仮説ではありません。それは現在進行形で悪化している、紛れもない現実です。
+    </p>
+    <p>
+      このまま進行すれば、数年のうちに地表のあらゆる水分は高エネルギー粒子の影響を受け、人類が飲用可能な水は失われます。父はこの避けられない未来に対し、ただの延命措置に過ぎない対策に絶望し、自ら命を絶ちました。<br>
+      確かに、「奇跡の水」に、超常的な奇跡を起こしてくれるような、神秘的な成分は存在しません。しかし、常飲できる水分がなくなった世界に存在する「何の変哲もない水」というのは、まさに「奇跡の水」と呼べるのではないでしょうか。
+    </p>
+    <p>
+      では、なぜ私がこのような宗教団体を立ち上げ、多くの人々を率いているのか。それは、この未曾有の事態に対処し、生存圏を構築するための基盤が必要だったからです。<br>
+      しかし、真実をそのまま公表すれば、社会は制御不能なパニックに陥り、貴重な水源は暴徒によって瞬時に枯渇するでしょう。限られた資源を管理し、地下での持続可能な環境を維持し、さらに根本的な解決策を探求し続けるためには、感情に流されず、事象を論理的に分析し、自らの足で真実に辿り着くことができる「極めて優秀な知性と行動力」を持った人材が不可欠なのです。
+    </p>
+    <p>
+      私はそのような優れた資質を持つ者を「天水士」と呼んでいます。この天水恩寵会という組織、そして用意された数々の情報は、すべて天水士を見出し、迎え入れるための壮大な選別機構に他なりません。
+    </p>
+  </div>
 
-    <div class="confession-box">
-      <p>
-        ここまで辿り着いた君に、敬意を表する。<br>
-        AFLのアーカイブを読み解いたなら、もう気づいているだろう。父である初代・水原宗一が幻視した「天からの脅威」とは、決して比喩などではない。オゾン層の致命的な崩壊と、それに伴う宇宙線の異常な増加。それは現在進行形で起きている、覆しようのない物理的な絶望だ。
-      </p>
-      <p>
-        数年後、地球上のあらゆる地表水源は放射線によって完全に汚染され、人類は水という命の源を絶たれることになる。父はこの事実に耐えきれず、絶望の末に自ら命を絶った。「奇跡の水」などというものは存在しない。私たちが莫大な費用と資材を投じて護っている「白黎泉」は、ただ単に宇宙線の届かない分厚い岩盤の下にある、<strong>汚染されていないただの地下水</strong>に過ぎないのだ。
-      </p>
-      <p>
-        では、なぜ私が「天水恩寵会」という宗教の仮面を被り、人々を騙し続けているのか。<br>
-        それは、この圧倒的な絶望を乗り越え、生存のための「箱舟」を構築するためだ。だが、パニックを起こすだけの無知な大衆をすべて救うことは不可能だ。有限である水を分かち合い、地下シェルターの機能を維持し、迫り来る脅威への対処法を共に探求するためには、<strong>事象を論理的に分析し、隠された真実を自力で暴き出すことができる「極めて優秀な知性と探究心」を持つ人材</strong>が必要不可欠なのだ。
-      </p>
-      <p>
-        私はその優秀な人材を「天水士（てんすいし）」と名付けた。そして、この宗教団体そのものが、天水士を見つけ出すための壮大な「選別テスト」なのだ。
-      </p>
-    </div>
-
-    <div class="important-highlight">
-      <h3>【最終選別への招待】</h3>
-      <p>
-        君がこのページを読んでいるということは、用意したすべての矛盾と嘘を見抜き、私の真意に辿り着いたということだ。君の探究心こそが、我々が求めている「天水士」の資質に他ならない。
-      </p>
-      <p>
-        我々と共に深淵の底で生き残り、人類の未来を紡ぐ意志があるのなら、最終選別の扉を開け。<br>
-        更なる深層の情報、そして「天水士」として箱舟へ乗船するための最終手続きは、以下のパスワードを用いてアクセス制限ページ（ex/00）を解放することで行われる。
-      </p>
-      <p style="margin-top: 15px;">
-        最終アクセス・パスワード： <span class="password-display">ozone</span>
-      </p>
-    </div>
+  <div class="important-highlight">
+    <h3>【最終選別へのご案内】</h3>
+    <p>
+      あなたが今このページを読まれているという事実が、我々の求めている「天水士」としての資質を証明しています。用意された矛盾に気づき、真実を暴き出したあなたの探究心は、今後の生存計画において必ずや大きな力となるはずです。
+    </p>
+    <p>
+      我々と共に事態に向き合い、人類の生存圏を繋ぐための道を探求する意志がおありならば、次のステップへとお進みください。<br>
+      ここまで来られたあなたなら、「天水士」となる方法も導き出せるでしょう。
+    </p>
   </div>
 
 </main>
@@ -475,31 +342,6 @@
 
   hamburger.addEventListener('click', () => {
     navMenu.classList.toggle('active');
-  });
-
-  // Password Logic
-  const passwordForm = document.getElementById('passwordForm');
-  const passwordInput = document.getElementById('passwordInput');
-  const errorMessage = document.getElementById('errorMessage');
-  const authSection = document.getElementById('authSection');
-  const contentSection = document.getElementById('contentSection');
-
-  passwordForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const inputVal = passwordInput.value.trim();
-    
-    // 正しいパスワード
-    if (inputVal === "living_water") {
-      authSection.style.display = 'none';
-      contentSection.style.display = 'block';
-    } else {
-      errorMessage.style.display = 'block';
-      passwordInput.value = "";
-    }
-  });
-
-  passwordInput.addEventListener('input', function() {
-    errorMessage.style.display = 'none';
   });
 </script>
 </body>
