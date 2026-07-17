@@ -266,6 +266,56 @@
     background-color: #a68f6d;
   }
 
+  /* Custom Dialog Styles */
+  .dialog-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(2px);
+  }
+
+  .dialog-box {
+    background-color: #ffffff;
+    width: 90%;
+    max-width: 450px;
+    padding: 40px 30px;
+    border-radius: 4px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    text-align: center;
+    border-top: 4px solid #bfa888;
+  }
+
+  .dialog-message {
+    font-size: 15px;
+    color: #5c554d;
+    line-height: 1.8;
+    margin-bottom: 30px;
+  }
+
+  .dialog-btn {
+    display: inline-block;
+    background-color: #bfa888;
+    color: #ffffff;
+    border: none;
+    padding: 10px 40px;
+    font-size: 14px;
+    font-family: inherit;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .dialog-btn:hover {
+    background-color: #a68f6d;
+  }
+
   footer {
     background-color: #ffffff;
     border-top: 1px solid #efeae1;
@@ -281,16 +331,6 @@
 
   .footer-meta p {
     margin: 5px 0;
-  }
-
-  #formMessage {
-    display: none;
-    text-align: center;
-    color: #8c7e6b;
-    padding: 20px;
-    background-color: #f7f5f0;
-    border-radius: 4px;
-    margin-top: 20px;
   }
 
   @media (max-width: 900px) {
@@ -420,17 +460,22 @@
 
         <button type="submit" class="submit-btn">審査を申し込む</button>
       </form>
-      <div id="formMessage">
-        <p>お申し込みを受け付けました。<br>あなた様の言葉は、確かに私どものもとへ届きました。<br>適性審査の結果につきましては、後日改めてご連絡申し上げます。</p>
-      </div>
     </div>
   </section>
 </main>
 
+<!-- Custom Dialog -->
+<div class="dialog-overlay" id="customDialog">
+  <div class="dialog-box">
+    <div class="dialog-message" id="dialogMessage"></div>
+    <button class="dialog-btn" id="dialogBtn">閉じる</button>
+  </div>
+</div>
+
 <footer>
   <div class="footer-meta">
     <p>このサイトの内容はフィクションです。登場する人物・団体・名称等は架空のものであり、実在のものとは関係ありません。</p>
-    <p>&lt; 5/00 &gt;</p>
+    <p>&lt; 5/26 &gt;</p>
   </div>
 </footer>
 
@@ -443,12 +488,47 @@
   });
 
   const contactForm = document.getElementById('contactForm');
-  const formMessage = document.getElementById('formMessage');
+  const customDialog = document.getElementById('customDialog');
+  const dialogMessage = document.getElementById('dialogMessage');
+  const dialogBtn = document.getElementById('dialogBtn');
+  
+  let isSuccess = false; // 成功ルートかどうかのフラグ
 
   contactForm.addEventListener('submit', function(e) {
     e.preventDefault();
-    contactForm.style.display = 'none';
-    formMessage.style.display = 'block';
+    
+    const referrerValue = document.getElementById('referrer').value.trim();
+    const reasonValue = document.getElementById('reason').value.trim();
+
+    const isReferrerMatch = (referrerValue === "水瀬隼人" || referrerValue === "水瀬 隼人");
+    const isReasonMatch = (reasonValue === "私は天水士として天水恩寵会に従事することを誓います。"); // ここを要件に合わせて変更
+
+    if (isReferrerMatch && isReasonMatch) {
+      // 成功ルートのメッセージ
+      dialogMessage.innerHTML = "申請を受理しました。<br>あなたはこれから天水士として活動していただきます。";
+      dialogBtn.textContent = "確認";
+      isSuccess = true;
+    } else {
+      // 通常（エラー）ルートのメッセージ
+      dialogMessage.innerHTML = "お申し込みを受け付けました。<br>あなた様の言葉は、確かに私どものもとへ届きました。<br>適性審査の結果につきましては、後日改めてご連絡申し上げます。";
+      dialogBtn.textContent = "閉じる";
+      isSuccess = false;
+    }
+    
+    // ダイアログを表示
+    customDialog.style.display = 'flex';
+  });
+
+  // ダイアログのボタンクリック時の処理
+  dialogBtn.addEventListener('click', () => {
+    if (isSuccess) {
+      // 成功ルートならエンディングへ遷移
+      window.location.href = "ending.html";
+    } else {
+      // 通常ルートならダイアログを閉じてフォームをリセット（またはそのまま）
+      customDialog.style.display = 'none';
+      // contactForm.reset(); // 入力内容をリセットしたい場合はコメントアウトを外す
+    }
   });
 </script>
 </body>
